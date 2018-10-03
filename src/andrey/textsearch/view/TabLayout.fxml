@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Tab xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+     fx:controller="andrey.textsearch.TabController">
+    <BorderPane minHeight="400.0" minWidth="600.0">
+        <top>
+            <AnchorPane>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0"
+                      AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+
+                    <VBox alignment="CENTER_LEFT">
+                        <Label text="Folder"/>
+                        <TextField fx:id="folderText" prefWidth="300.0"/>
+                    </VBox>
+
+                    <!--VBox for center alignment-->
+                    <VBox alignment="CENTER_LEFT">
+                        <Label/>
+                        <Button mnemonicParsing="false" onAction="#chooseFolder" prefWidth="65.0" text="Open"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER_LEFT">
+                        <HBox.margin>
+                            <Insets left="10.0"/>
+                        </HBox.margin>
+                        <Label text="Text"/>
+                        <TextField fx:id="inputText" prefWidth="300.0"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER_LEFT">
+                        <Label text="Extension"/>
+                        <TextField fx:id="extensionText" promptText="log"/>
+                    </VBox>
+
+                    <!--VBox for center alignment-->
+                    <VBox alignment="CENTER_LEFT">
+                        <Label/>
+                        <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#searchFiles" text="Search"/>
+                    </VBox>
+
+                </HBox>
+            </AnchorPane>
+        </top>
+        <center>
+            <AnchorPane>
+                <SplitPane dividerPositions="0.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <AnchorPane>
+                        <TreeView fx:id="treeView" layoutX="-12.0" layoutY="-17.0"
+                                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                    </AnchorPane>
+                    <BorderPane>
+                        <center>
+                            <ListView fx:id="listView" prefWidth="600" AnchorPane.bottomAnchor="0.0"
+                                      AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                      AnchorPane.topAnchor="0.0"/>
+                        </center>
+                        <bottom>
+                            <BorderPane>
+                                <left>
+                                    <HBox alignment="CENTER">
+                                        <Button onAction="#previousLabel" text="prev"/>
+                                        <Button onAction="#nextLabel" text="next"/>
+                                        <Region prefWidth="10" HBox.hgrow="ALWAYS"/>
+                                        <Label fx:id="matchLabel"/>
+                                    </HBox>
+                                </left>
+                                <right>
+                                    <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER_RIGHT"/>
+                                </right>
+                            </BorderPane>
+                        </bottom>
+                    </BorderPane>
+                </SplitPane>
+            </AnchorPane>
+        </center>
+    </BorderPane>
+</Tab>

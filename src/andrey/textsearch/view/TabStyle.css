@@ -1,0 +1,11 @@
+.list-cell:odd {
+    -fx-background-color: white;
+}
+
+.label-highlighted-focused {
+    -fx-background-color: orange;
+}
+
+.label-highlighted {
+    -fx-background-color: yellow;
+}
