@@ -72,7 +72,11 @@
                                     </HBox>
                                 </left>
                                 <right>
-                                    <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" BorderPane.alignment="CENTER_RIGHT"/>
+                                    <HBox alignment="CENTER">
+                                        <Label fx:id="progressLabel"/>
+                                        <Region prefWidth="10" HBox.hgrow="ALWAYS"/>
+                                        <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0"/>
+                                    </HBox>
                                 </right>
                             </BorderPane>
                         </bottom>

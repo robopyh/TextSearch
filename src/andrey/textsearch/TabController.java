@@ -38,6 +38,9 @@ public class TabController implements Initializable{
     private ProgressBar progressBar;
 
     @FXML
+    private Label progressLabel;
+
+    @FXML
     private Label matchLabel;
 
     // Number of a current highlighted fragment
@@ -220,10 +223,14 @@ public class TabController implements Initializable{
             extension = extensionText.getText().replaceAll("\\s+","").split(",");
         }
 
+        // clean listview from current file
+        listView.setItems(null);
+
         // Use Task to do a background search
         FileSearcherTask fileSearcherTask = new FileSearcherTask(new File(folderText.getText()), inputText.getText(), extension);
         treeView.rootProperty().bind(fileSearcherTask.valueProperty());
         progressBar.progressProperty().bind(fileSearcherTask.progressProperty());
+        progressLabel.textProperty().bind(fileSearcherTask.messageProperty());
         new Thread (fileSearcherTask).start();
     }
 
